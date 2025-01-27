@@ -8,7 +8,6 @@ Terraform module to create a Managed Kubernetes Cluster.
     - [Format](#Format)
     - [Components](#Components)
 - [AKS SSH Keys](#aks-ssh-keys)
-- [Entra ID Group](#entra-id-group)
 - [ACI Connector for AKS](#aci-connector-for-aks)
 - [Ingress Application Gateway](#ingress-application-gateway)
 - [Requirements](#requirements)
@@ -44,7 +43,7 @@ To create and configure SSH keys for accessing the AKS cluster:
 
 1. **Create the directory** for storing SSH keys:
     ```bash
-    mkdir $HOME/.ssh/QuestOpsHub
+    mkdir $HOME/.ssh/VeeraBhadraDevOps
     ```
 
 2. **Generate the SSH key pair**:
@@ -53,21 +52,15 @@ To create and configure SSH keys for accessing the AKS cluster:
         -m PEM \
         -t rsa \
         -b 4096 \
-        -C "QuestOpsHub@LAPTOP-XXXXXXX" \
-        -f ~/.ssh/QuestOpsHub/QuestOpsHub_id_rsa \
+        -C "VeeraBhadraDevOps@LAPTOP-XXXXXXX" \
+        -f ~/.ssh/VeeraBhadraDevOps/VeeraBhadraDevOps_id_rsa \
         -N "mypassphrase"
     ```
 
 3. **Verify** the keys are created:
     ```bash
-    ls -lrt $HOME/.ssh/QuestOpsHub
+    ls -lrt $HOME/.ssh/VeeraBhadraDevOps
     ```
-
-## Entra ID Group
-
-- A group named `AKS-Admins` was created in **Entra ID**.
-
-- The **object_id** of this group will be passed to the `admin_group_object_ids` in the `azure_active_directory_role_based_access_control` block.
 
 ## ACI Connector for AKS
 
